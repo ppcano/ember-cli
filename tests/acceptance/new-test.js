@@ -108,11 +108,13 @@ describe('Acceptance: ember new', function() {
   }));
 
   it('ember new module-unification-app', co.wrap(function *() {
+
+    const blueprintName = isExperimentEnabled("OCTANE_BLUEPRINT") ? 'octane-app' : 'module-unification-app';
     yield ember([
       'new',
       'foo',
       '--blueprint',
-      'module-unification-app',
+      blueprintName,
       '--skip-npm',
       '--skip-bower',
     ]);
